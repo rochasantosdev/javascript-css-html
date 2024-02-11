@@ -3,16 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exemplo de Script JavaScript</title>
+    <title>JavaScript</title>
 </head>
 <body>
 
-    <div id="resultado"></div>
+    <div id="resultado">saídas Javascript</div>
 
 <script>
-        
-        document.getElementById("resultado").textContent = "Resultado: 40";
-        
+        /* Manipulação do DOM: Você pode acessar e manipular elementos do DOM para exibir informações dinamicamente na página.*/
+
+        /* textContent */
+
+        /* document.getElementById("resultado").textContent = "Resultado: 40";*/
+
+        var a = 10
+        var b = 5
+        var resultado = soma(a, b);
+
+        function soma(a, b) {
+            return a + b;
+        }
+
+        alert("Resultado da soma: " + resultado);
+
+
+
 </script>
 
 </body>
