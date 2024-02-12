@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mouseover e Mouseout</title>
+  <style>
+    .minhaDiv {
+      width: 200px;
+      height: 200px;
+      background-color: blue;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Div que terá a cor alterada -->
+  <div class="minhaDiv"></div>
+
+  <!-- Script contendo código JavaScript -->
+  <script>
+
+    // Obtém uma referência à div usando a classe
+    const minhaDiv = document.querySelector('.minhaDiv');
+
+    // Adiciona um ouvinte de evento para quando o mouse entrar na div
+    minhaDiv.addEventListener('mouseover', () => {
+      // Função de retorno de chamada que é acionada quando o mouse entra na div
+      // Altera a cor de fundo da div para "red"
+      minhaDiv.style.backgroundColor = 'red';
+    });
+
+    // Adiciona um ouvinte de evento para quando o mouse sair da div
+    minhaDiv.addEventListener('mouseout', () => {
+      // Função de retorno de chamada que é acionada quando o mouse sai da div
+      // Restaura a cor de fundo da div para "blue"
+      minhaDiv.style.backgroundColor = 'blue';
+    });
+
+  </script>
+</body>
+</html>
