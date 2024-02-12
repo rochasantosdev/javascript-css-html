@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exemplo com addEventListener()</title>
+</head>
+<body>
+
+  
+  <div class="minhaDiv" onmouseover="alterarCorEMostrarMensagem()" onmouseout="restaurarCor()">
+  </div>
+
+  <p id="mensagemParagrafo"></p>
+
+ 
+  <script>
+
+    let mousePassou = false;
+
+    function alterarCorEMostrarMensagem() {
+        
+      if (!mousePassou) {
+        // Altera a cor de fundo da div para "red"
+        const minhaDiv = document.querySelector('.minhaDiv');
+        minhaDiv.style.backgroundColor = 'red';
+
+        // Adiciona o texto na mensagem
+        const mensagemParagrafo = document.getElementById('mensagemParagrafo');
+        mensagemParagrafo.textContent = 'A cor foi alterada para blue';
+
+        // Atualiza a variável de controle
+        mousePassou = true;
+      }
+    }
+
+    function restaurarCor() {
+      // Restaura a cor de fundo da div para "blue"
+      const minhaDiv = document.querySelector('.minhaDiv');
+      minhaDiv.style.backgroundColor = 'blue';
+
+      // Remove o texto da mensagem
+      const mensagemParagrafo = document.getElementById('mensagemParagrafo');
+      mensagemParagrafo.textContent = '';
+    }
+  </script>
+</body>
+</html>
+
