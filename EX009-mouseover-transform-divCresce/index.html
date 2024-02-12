@@ -20,32 +20,40 @@
             height: 100vh;
         }
 
+        section{
+            background-color: chocolate;
+            width: 300px;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
         .minhaDiv {
+            position: relative;
             width: 200px;
             height: 200px;
             overflow: hidden;
-            /* Para garantir que a imagem não ultrapasse os limites da div */
-            position: relative;
-            /* Para permitir posicionamento absoluto da segunda div */
             background-color: blueviolet;
+            transition: transform 0.3s ease; /* Transição suave para a transformação */
         }
 
         .minhaImagem {
             width: 100%;
-            /* Para ocupar 100% da largura da div */
             height: auto;
-            /* Para manter a proporção da imagem */
         }
 
         .segundaDiv {
-            position: absolute;
             width: 200px;
             height: 200px;
             background-color: black;
             opacity: 0;
-            /* Inicialmente invisível */
             transition: opacity 0.3s ease;
-            /* Transição suave para a opacidade */
+        }
+
+        section:hover, .segundaDiv:hover {
+            transform: scale(1.1); /* Efeito de escala ao passar o mouse sobre as divs */
         }
     </style>
 </head>
@@ -60,20 +68,14 @@
 
     </section>
 
-
     <script>
-
         function mostrarSegundaDiv() {
-            // Obtém a referência da segunda div
             const segundaDiv = document.querySelector('.segundaDiv');
-            // Torna a segunda div visível
             segundaDiv.style.opacity = 1;
         }
 
         function esconderSegundaDiv() {
-            // Obtém a referência da segunda div
             const segundaDiv = document.querySelector('.segundaDiv');
-            // Torna a segunda div invisível
             segundaDiv.style.opacity = 0;
         }
     </script>
