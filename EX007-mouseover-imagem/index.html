@@ -5,27 +5,42 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Exemplo com Imagem ao Passar o Mouse</title>
   <style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100vh;
+    }
     .minhaDiv {
       width: 200px;
-      height: 200px;
+      height: 400px;
       overflow: hidden; /* Para garantir que a imagem não ultrapasse os limites da div */
+      background-color: rgb(52, 187, 250);
+      border-radius: 1rem;
     }
 
     .minhaImagem {
       width: 100%; /* Para ocupar 100% da largura da div */
-      height: auto; /* Para manter a proporção da imagem */
+      height: 200px; /* Para manter a proporção da imagem */
     }
   </style>
 </head>
 <body>
 
-  <!-- Div que terá a imagem alterada -->
+  
   <div class="minhaDiv" onmouseover="mudarImagem('imagem/css.png')" onmouseout="mudarImagem('imagem/html.png')">
     <img class="minhaImagem" src="imagem/html.png" alt="Imagem Anterior">
   </div>
 
-  <!-- Script contendo código JavaScript -->
+
   <script>
+
     function mudarImagem(novaSrc) {
       // Obtém a referência da imagem dentro da div
       const minhaImagem = document.querySelector('.minhaImagem');
