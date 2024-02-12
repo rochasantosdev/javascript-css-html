@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo com Imagem e Segunda Div ao Passar o Mouse</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100vh;
+        }
+
+        .minhaDiv {
+            width: 200px;
+            height: 200px;
+            overflow: hidden;
+            /* Para garantir que a imagem não ultrapasse os limites da div */
+            position: relative;
+            /* Para permitir posicionamento absoluto da segunda div */
+            background-color: blueviolet;
+        }
+
+        .minhaImagem {
+            width: 100%;
+            /* Para ocupar 100% da largura da div */
+            height: auto;
+            /* Para manter a proporção da imagem */
+        }
+
+        .segundaDiv {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background-color: black;
+            opacity: 0;
+            /* Inicialmente invisível */
+            transition: opacity 0.3s ease;
+            /* Transição suave para a opacidade */
+        }
+    </style>
+</head>
+
+<body>
+
+    <section>
+
+        <div class="minhaDiv" onmouseover="mostrarSegundaDiv()" onmouseout="esconderSegundaDiv()"></div>
+
+        <div class="segundaDiv"></div>
+
+    </section>
+
+
+    <script>
+
+        function mostrarSegundaDiv() {
+            // Obtém a referência da segunda div
+            const segundaDiv = document.querySelector('.segundaDiv');
+            // Torna a segunda div visível
+            segundaDiv.style.opacity = 1;
+        }
+
+        function esconderSegundaDiv() {
+            // Obtém a referência da segunda div
+            const segundaDiv = document.querySelector('.segundaDiv');
+            // Torna a segunda div invisível
+            segundaDiv.style.opacity = 0;
+        }
+    </script>
+</body>
+
+</html>
