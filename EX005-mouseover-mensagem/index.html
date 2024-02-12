@@ -31,44 +31,22 @@
 </head>
 <body>
 
+    <!-- Div que terá o texto exibido -->
+    <div class="minhaDiv" onmouseover="exibirTexto()" onmouseout="esconderTexto()">
+      <span id="textoSpan" style="display: none;">Texto ao passar o mouse!</span>
+    </div>
   
-  <div class="minhaDiv" onmouseover="alterarCorEMostrarMensagem()" onmouseout="restaurarCor()">
-
-  <p id="mensagemParagrafo"></p>
-
-  </div>
-
- 
-  <script>
-
-    let mousePassou = false;
-
-    function alterarCorEMostrarMensagem() {
-
-      if (!mousePassou) {
-        // Altera a cor de fundo da div para "red"
-        const minhaDiv = document.querySelector('.minhaDiv');
-        minhaDiv.style.backgroundColor = 'red';
-
-        // Adiciona o texto na mensagem
-        const mensagemParagrafo = document.getElementById('mensagemParagrafo');
-        mensagemParagrafo.textContent = 'A cor foi alterada para Red';
-
-        // Atualiza a variável de controle
-        mousePassou = true;
+    <!-- Script contendo código JavaScript -->
+    <script>
+      function exibirTexto() {
+        // Mostra o texto quando o mouse passa sobre a div
+        document.getElementById('textoSpan').style.display = 'inline';
       }
-    }
-
-    function restaurarCor() {
-      // Restaura a cor de fundo da div para "blue"
-      const minhaDiv = document.querySelector('.minhaDiv');
-      minhaDiv.style.backgroundColor = 'blue';
-
-      // Remove o texto da mensagem
-      const mensagemParagrafo = document.getElementById('mensagemParagrafo');
-      mensagemParagrafo.textContent = '';
-    }
-  </script>
-</body>
-</html>
-
+  
+      function esconderTexto() {
+        // Esconde o texto quando o mouse sai da div
+        document.getElementById('textoSpan').style.display = 'none';
+      }
+    </script>
+  </body>
+  </html>
