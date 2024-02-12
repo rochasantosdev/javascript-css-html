@@ -14,11 +14,15 @@
     <p id="meuParagrafo">Texto inicial</p>
 
     <script>
-
+        
+        // Obtém uma referência ao botão e ao parágrafo usando IDs
         const botao = document.getElementById('meuBotao');
         const paragrafo = document.getElementById('meuParagrafo');
 
+        //  Adiciona um ouvinte de evento para o clique no botão 
         botao.addEventListener('click', () => {
+        // Função de retorno de chamada que é acionada quando o botão é clicado
+        // Altera o texto do parágrafo para "Novo texto após o clique!"
             paragrafo.textContent = 'Novo texto após o clique!';
         });
 
