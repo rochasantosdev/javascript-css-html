@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exemplo com Imagem ao Passar o Mouse</title>
+  <style>
+    .minhaDiv {
+      width: 200px;
+      height: 200px;
+      overflow: hidden; /* Para garantir que a imagem não ultrapasse os limites da div */
+    }
+
+    .minhaImagem {
+      width: 100%; /* Para ocupar 100% da largura da div */
+      height: auto; /* Para manter a proporção da imagem */
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Div que terá a imagem alterada -->
+  <div class="minhaDiv" onmouseover="mudarImagem('bootstrap.png')" onmouseout="mudarImagem('Section → Link → avatar2.png')">
+    <img class="minhaImagem" src="" alt="Imagem Anterior">
+  </div>
+
+  <!-- Script contendo código JavaScript -->
+  <script>
+    function mudarImagem(novaSrc) {
+      // Obtém a referência da imagem dentro da div
+      const minhaImagem = document.querySelector('.minhaImagem');
+      // Muda o src da imagem
+      minhaImagem.src = novaSrc;
+    }
+  </script>
+</body>
+</html>
