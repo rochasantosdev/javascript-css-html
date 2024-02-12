@@ -4,14 +4,34 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Exemplo com addEventListener()</title>
+  <style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100vh;
+    }
+    .minhaDiv {
+      width: 200px;
+      height: 200px;
+      background-color: blue;
+    }
+  </style>
 </head>
 <body>
 
   
   <div class="minhaDiv" onmouseover="alterarCorEMostrarMensagem()" onmouseout="restaurarCor()">
-  </div>
 
   <p id="mensagemParagrafo"></p>
+
+  </div>
 
  
   <script>
@@ -19,7 +39,7 @@
     let mousePassou = false;
 
     function alterarCorEMostrarMensagem() {
-        
+
       if (!mousePassou) {
         // Altera a cor de fundo da div para "red"
         const minhaDiv = document.querySelector('.minhaDiv');
