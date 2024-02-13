@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercícios DOM</title>
+    <style>
+        .destaque {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Exercício 1: Seleção de Elementos -->
+    <div id="exercicio1">Elemento para seleção</div>
+
+    <!-- Exercício 2: Manipulação de Conteúdo -->
+    <p id="exercicio2">Clique para alterar o conteúdo</p>
+
+    <!-- Exercício 3: Manipulação de Estilos -->
+    <button id="exercicio3">Destacar</button>
+
+    <!-- Exercício 4: Manipulação de Eventos -->
+    <button id="exercicio4">Clique para exibir mensagem</button>
+
+    <!-- Exercício 5: Seleção de Elementos -->
+    <ul id="exercicio5">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ul>
+
+    <!-- Exercício 6: Manipulação de Conteúdo -->
+    <div id="exercicio6"></div>
+
+    <!-- Exercício 7: Manipulação de Estilos -->
+    <p id="exercicio7">Clique para mudar a cor</p>
+
+    <!-- Exercício 8: Manipulação de Eventos -->
+    <input type="text" id="exercicio8" placeholder="Digite algo">
+
+    <!-- Exercício 9: Seleção de Elementos -->
+    <div class="exercicio9">Elemento 1</div>
+    <div class="exercicio9">Elemento 2</div>
+    <div class="exercicio9">Elemento 3</div>
+
+    <!-- Exercício 10: Manipulação de Conteúdo -->
+    <ul id="exercicio10">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ul>
+
+    <script>
+        // Exercício 1
+        var elementoExercicio1 = document.getElementById('exercicio1');
+
+        // Exercício 2
+        var elementoExercicio2 = document.getElementById('exercicio2');
+        elementoExercicio2.addEventListener('click', function() {
+            this.innerHTML = 'Conteúdo alterado!';
+        });
+
+        // Exercício 3
+        var elementoExercicio3 = document.getElementById('exercicio3');
+        elementoExercicio3.addEventListener('click', function() {
+            this.classList.add('destaque');
+        });
+
+        // Exercício 4
+        var elementoExercicio4 = document.getElementById('exercicio4');
+        elementoExercicio4.addEventListener('click', function() {
+            alert('Mensagem exibida!');
+        });
+
+        // Exercício 5
+        var elementosExercicio5 = document.querySelectorAll('#exercicio5 li');
+
+        // Exercício 6
+        var elementoExercicio6 = document.getElementById('exercicio6');
+        elementoExercicio6.innerHTML = '<p>Novo conteúdo adicionado dinamicamente</p>';
+
+        // Exercício 7
+        var elementoExercicio7 = document.getElementById('exercicio7');
+        elementoExercicio7.addEventListener('click', function() {
+            this.style.color = 'blue';
+        });
+
+        // Exercício 8
+        var elementoExercicio8 = document.getElementById('exercicio8');
+        elementoExercicio8.addEventListener('input', function() {
+            console.log('Valor digitado:', this.value);
+        });
+
+        // Exercício 9
+        var elementosExercicio9 = document.querySelectorAll('.exercicio9');
+
+        // Exercício 10
+        var elementoExercicio10 = document.getElementById('exercicio10');
+        elementoExercicio10.addEventListener('click', function(event) {
+            if (event.target.tagName === 'LI') {
+                alert('Clicou no item: ' + event.target.innerText);
+            }
+        });
+    </script>
+</body>
+</html>
