@@ -1,49 +1,59 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mover Div do Lugar com clck</title>
     <style>
-        *{
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-        } 
-        body{
-            width: 100vh;
+        }
+
+        body {
+            width: 100%;
             height: 100vh;
             display: flex;
             align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            row-gap: 1rem;
         }
-        #caixa{
+
+        #caixa {
             background-color: chocolate;
             width: 300px;
             height: 300px;
             border-radius: 1rem;
 
         }
-        </style>
+
+        button {
+            margin-right: 1rem;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 1rem;
+            border: none;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: bold;
+            background-color: #8257E6;
+            transition: transform 0.3s ease-in-out;
+            color: #ffffff;
+            cursor: pointer;
+        }
+    </style>
 </head>
+
 <body>
 
-    <div id="caixa">
+    <div id="caixa"></div>
 
     <button id="btn">Click Aqui</button>
 
-
-    </div>
-
-
-
-
-
 </body>
-
 <script>
-
-
-
-
 </script>
+
 </html>
