@@ -27,7 +27,12 @@
             width: 300px;
             height: 300px;
             border-radius: 1rem;
-
+            transition: transform 0.3s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
         }
 
         button {
@@ -39,9 +44,14 @@
             font-family: 'DM Sans', sans-serif;
             font-weight: bold;
             background-color: #8257E6;
-            transition: transform 0.3s ease-in-out;
             color: #ffffff;
             cursor: pointer;
+        }
+
+        body.ativar #caixa {
+            transform: translateY(-60%) translateX(90%) rotate(-45deg);
+            background-color: blueviolet;
+            color: black;
         }
     </style>
 </head>
@@ -50,9 +60,36 @@
 
     <div id="caixa"></div>
 
-    <button id="botão" onclick="minhafunção()">Click Aqui</button>
+    <button id="botão" onclick="clicou()">Click Aqui</button>
 
 </body>
-<script src="index.js"></script>
+<script>
+    // Seleciona o botão pelo ID e armazena na variável btn
+    const btn = document.getElementById("botão");
+
+    // Obtém a referência ao elemento body do DOM e armazena na variável body
+    const body = document.body;
+
+    // Seleciona a div pelo ID "caixa" e armazena na variável caixa
+    const caixa = document.getElementById("caixa");
+
+    // Função chamada quando o botão é clicado
+    function clicou() {
+        // Verifica se a classe "ativar" está presente no elemento body
+        const ativar = body.classList.contains("ativar");
+
+        // Adiciona ou remove a classe "ativar" no elemento body (alternância)
+        body.classList.toggle("ativar");
+
+        // Verifica se a classe estava presente antes do clique
+        if (ativar) {
+            // Se estava presente, limpa o texto dentro da div
+            caixa.innerText = "";
+        } else {
+            // Se não estava presente, define o texto dentro da div como "Você moveu a div!"
+            caixa.innerText = "Você moveu a div!";
+        }
+    }
+</script>
 
 </html>
