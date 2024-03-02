@@ -1,6 +1,6 @@
-const el = document.querySelector("#text");
-const text = "O Javascript é muito interessante";
-const interval = 300;
+const el = document.querySelector("h1");
+const text = "O Javascript é muito interessante.";
+const interval = 100;
 
 function showText(el, text, interval) {
     const char = text.split("").reverse();
