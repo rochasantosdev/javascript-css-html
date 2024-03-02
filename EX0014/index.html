@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Lateral</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Estilo para o menu lateral */
+        #menuLateral {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+        /* Estilo para o conteúdo da página que é empurrado quando o menu está aberto */
+        #conteudo {
+            transition: margin-left .5s;
+            padding: 16px;
+        }
+
+        /* Estilo para o botão de abrir o menu */
+        #btnAbrirMenu {
+            font-size: 20px;
+            position: fixed;
+            left: 20px;
+            top: 20px;
+            cursor: pointer;
+            z-index: 2;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Botão para abrir o menu -->
+    <span id="btnAbrirMenu" onclick="abrirMenu()">&#9776; Menu</span>
+
+    <!-- Menu Lateral -->
+    <div id="menuLateral">
+        <a href="javascript:void(0)" class="fecharMenu" onclick="fecharMenu()">&times; Fechar</a>
+        <a href="#">Item 1</a>
+        <a href="#">Item 2</a>
+        <a href="#">Item 3</a>
+        <a href="#">Item 4</a>
+    </div>
+
+    <!-- Conteúdo da página -->
+    <div id="conteudo">
+        <h2>Conteúdo da Página</h2>
+        <p>Este é um exemplo de uma página com um menu lateral que se abre no eixo x.</p>
+    </div>
+
+    <!-- Script JavaScript -->
+    <script>
+        function abrirMenu() {
+            document.getElementById("menuLateral").style.width = "250px";
+            document.getElementById("conteudo").style.marginLeft = "250px";
+        }
+
+        function fecharMenu() {
+            document.getElementById("menuLateral").style.width = "0";
+            document.getElementById("conteudo").style.marginLeft = "0";
+        }
+    </script>
+
+</body>
+
+</html>
