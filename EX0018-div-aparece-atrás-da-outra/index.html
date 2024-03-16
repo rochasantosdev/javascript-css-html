@@ -1,30 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Move Box on Hover</title>
 <style>
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body,html {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    background-color: #13131F;
+  }
+
   .container {
-    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
   }
 
   .box {
-    width: 100px;
-    height: 100px;
+    width: 380px;
+    height: 200px;
     background-color: blue;
-    margin-bottom: 10px;
-    position: relative;
     z-index: 1;
+    position: relative;
+    border-radius: 1rem;
   }
 
   .move {
     width: 100px;
-    height: 100px;
+    height: 70px;
     background-color: chartreuse;
-    position: absolute;
-    top: 0;
-    transition: top 0.9s ease;
+    top: -20%;
+    transition: 0.7s;
     opacity: 0; /* Inicia invisível */
     z-index: 0;
   }
@@ -32,24 +51,36 @@
 </head>
 <body>
 
-<div class="container">
-  <div class="box" onmouseover="moveBox(this)" onmouseout="resetBox(this)"></div>
-  <div class="box move" onmouseover="moveBox(this)" onmouseout="resetBox(this)"></div>
-</div>
+  <div class="container">
+
+    <div class="box" onmouseover="moveBox()" onmouseout="resetBox()"></div>
+   
+    <div class="box move" onmouseover="moveBox()" onmouseout="resetBox()"></div>
+  </div>
 
 <script>
-  function moveBox(element) {
-    const moveBox = element.parentElement.querySelector('.move');
-    moveBox.style.top = "100px"; // Move a div que se movimenta para baixo
-    moveBox.style.opacity = "1"; // Torna a div que se movimenta visível
+  function moveBox() {
+    // Seleciona todas as divs com a classe "move"
+    const moveBoxes = document.querySelectorAll('.move');
+    // Percorre todas as divs e aplica o movimento em cada uma
+    moveBoxes.forEach(function(moveBox) {
+      moveBox.style.top = "0px"; // Move a div que se movimenta para baixo
+      moveBox.style.opacity = "1"; // Torna a div que se movimenta visível
+    });
   }
 
-  function resetBox(element) {
-    const moveBox = element.parentElement.querySelector('.move');
-    moveBox.style.top = "0px"; // Retorna a div que se movimenta à sua posição original
-    moveBox.style.opacity = "0"; // Torna a div que se movimenta invisível novamente
+  function resetBox() {
+    // Seleciona todas as divs com a classe "move"
+    const moveBoxes = document.querySelectorAll('.move');
+    // Percorre todas as divs e aplica a redefinição em cada uma
+    moveBoxes.forEach(function(moveBox) {
+      moveBox.style.top = "-20%"; // Retorna a div que se movimenta à sua posição original
+      moveBox.style.opacity = "0"; // Torna a div que se movimenta invisível novamente
+    });
   }
 </script>
 
 </body>
 </html>
+
+
