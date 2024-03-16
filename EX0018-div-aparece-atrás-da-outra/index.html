@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Move Box on Hover</title>
+<style>
+  .container {
+    position: relative;
+  }
+
+  .box {
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .move {
+    width: 100px;
+    height: 100px;
+    background-color: chartreuse;
+    position: absolute;
+    top: 0;
+    transition: top 0.9s ease;
+    opacity: 0; /* Inicia invisível */
+    z-index: 0;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="box" onmouseover="moveBox(this)" onmouseout="resetBox(this)"></div>
+  <div class="box move" onmouseover="moveBox(this)" onmouseout="resetBox(this)"></div>
+</div>
+
+<script>
+  function moveBox(element) {
+    const moveBox = element.parentElement.querySelector('.move');
+    moveBox.style.top = "100px"; // Move a div que se movimenta para baixo
+    moveBox.style.opacity = "1"; // Torna a div que se movimenta visível
+  }
+
+  function resetBox(element) {
+    const moveBox = element.parentElement.querySelector('.move');
+    moveBox.style.top = "0px"; // Retorna a div que se movimenta à sua posição original
+    moveBox.style.opacity = "0"; // Torna a div que se movimenta invisível novamente
+  }
+</script>
+
+</body>
+</html>
