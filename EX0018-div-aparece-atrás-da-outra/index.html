@@ -213,6 +213,8 @@
 
 -->
 
+<!--
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -235,8 +237,7 @@
       font-family: 'DM Sans', sans-serif;
     }
 
-    body,
-    html {
+    body {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -246,16 +247,18 @@
       font-family: 'DM Sans', sans-serif;
     }
 
-    .container {
+    section {
       display: flex;
       align-items: center;
       justify-content: center;
       flex-direction: column;
       width: 100%;
       height: 100vh;
+      padding: 3%;
+      background-color: rgb(95, 112, 77);
     }
 
-    .box {
+    #box {
       width: 400px;
       height: 250px;
       position: relative;
@@ -272,7 +275,21 @@
       background-size: cover;
     }
 
-    .move {
+   #container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 500px;
+      height: 400px;
+      transition: all 0.7s;
+    }
+
+    #container:hover {
+     transform: scale(1.2);
+    }
+
+    #move {
       display: flex;
       align-items: center;
       justify-content: space-around;
@@ -280,20 +297,20 @@
       height: 55px;
       background-color: #212121;
       top: -20%;
-      transition: 0.7s;
+      transition: 0.5s;
       opacity: 0;
       position: relative;
       z-index: 0;
       border-radius: 0 0 15px 15px;
     }
 
-    .move h1 {
+    #move h1 {
       font-size: 14px;
       color: aliceblue;
       font-family: 'DM Sans', sans-serif;
     }
 
-    .button {
+    #button {
       padding: 6px 12px;
       background-color: #007bff;
       color: #fff;
@@ -302,10 +319,9 @@
       cursor: pointer;
       font-size: 10px;
       font-weight: 400;
-      transition: transform 0.3s ease;
     }
 
-    .button:hover {
+    #button:hover {
       background-color: #0056b3;
     }
   </style>
@@ -313,29 +329,32 @@
 
 <body>
 
-  <div class="container">
-      <div class="box" onmouseover="moveBox()" onmouseout="resetBox()"></div>
-      <div class="move" onmouseover="keepMoveOpen()" onmouseout="resetBox()">
+  <section>
+    <div id="container">
+      <div id="box" onmouseover="moveBox()" onmouseout="resetBox()"></div>
+      <div id="move" onmouseover="keepMoveOpen()" onmouseout="resetBox()">
         <h1>28 de Outubro de 2012</h1>
-        <button class="button">Saber Mais</button>
+        <button id="button">Saber Mais</button>
       </div>
-  </div>
+    </div>
+  </section>
+
 
   <script>
     function moveBox() {
-      const moveBox = document.querySelector('.move');
+      const moveBox = document.querySelector('#move');
       moveBox.style.top = "0px";
       moveBox.style.opacity = "1";
     }
 
     function resetBox() {
-      const moveBox = document.querySelector('.move');
+      const moveBox = document.querySelector('#move');
       moveBox.style.top = "-20%";
       moveBox.style.opacity = "0";
     }
 
     function keepMoveOpen() {
-      const moveBox = document.querySelector('.move');
+      const moveBox = document.querySelector('#move');
       moveBox.style.top = "0px";
       moveBox.style.opacity = "1";
     }
@@ -344,3 +363,164 @@
 </body>
 
 </html>
+
+
+-->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transformação com Hover</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;0,9..40,900;1,9..40,300;1,9..40,400;1,9..40,500;1,9..40,600;1,9..40,700;1,9..40,800;1,9..40,900&family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100vh;
+      background-color: #13131F;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      width: 100%;
+      height: 100vh;
+      padding: 3%;
+    }
+
+    #box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Poppins', sans-serif;
+      font-size: 18px;
+      font-weight: 500;
+      color: #fff;
+      width: 400px;
+      height: 250px;
+      position: relative;
+      border-radius: 1rem;
+      z-index: 1;
+      border-radius: 15px 15px 0 0;
+      border-bottom: 1px solid transparent;
+      border-image: linear-gradient(to right, #8be7ff, #2eb8f8, #004cd8);
+      border-image-slice: 1;
+      border-bottom-width: 3px;
+      border-bottom-style: solid;
+      overflow: hidden;
+      background-image: url('dailyweather.jpg');
+      background-size: cover;
+    }
+
+    #container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 500px;
+      height: 400px;
+      transition: all 0.7s;
+    }
+
+    #container:hover {
+      transform: scale(1.1);
+    }
+
+    #move {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      width: 400px;
+      height: 55px;
+      background-color: #212121;
+      top: -20%;
+      transition: 0.6s;
+      opacity: 0;
+      position: relative;
+      z-index: 0;
+      border-radius: 0 0 15px 15px;
+    }
+
+    #move h1 {
+      font-size: 12px;
+      color: aliceblue;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    #button {
+      padding: 4px 12px;
+      background-color: #212121;
+      color: #fff;
+      border-radius: 1rem;
+      border: 2px solid #24abfa;
+      cursor: pointer;
+      font-size: 11px;
+      font-weight: 500;
+    }
+
+    #container #button {
+      transition: all 4s ease-in-out;
+    }
+    
+    #container:hover #button {
+      transform: scale(1.1);
+      background-color: #24abfa;
+    } 
+  </style>
+</head>
+
+<body>
+
+  <section>
+    <div id="container">
+      <div id="box" onmouseover="moveBox()" onmouseout="resetBox()">Daily Weather</div>
+      <div id="move" onmouseover="keepMoveOpen()" onmouseout="resetBox()">
+        <h1>28 de Outubro de 2012</h1>
+        <button id="button">Ver Mais</button>
+      </div>
+    </div>
+  </section>
+
+
+  <script>
+
+    function moveBox() {
+      const moveBox = document.querySelector('#move');
+      moveBox.style.top = "0px";
+      moveBox.style.opacity = "1";
+    }
+
+    function resetBox() {
+      const moveBox = document.querySelector('#move');
+      moveBox.style.top = "-20%";
+      moveBox.style.opacity = "0";
+    }
+
+    function keepMoveOpen() {
+      const moveBox = document.querySelector('#move');
+      moveBox.style.top = "0px";
+      moveBox.style.opacity = "1";
+    }
+
+  </script>
+
+</body>
+</html>
+
+
+
