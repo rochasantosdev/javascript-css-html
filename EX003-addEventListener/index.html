@@ -1,30 +1,60 @@
 <!DOCTYPE html>
+
 <html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Javascript</title>
+    <title>Click</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            width: 100%;
+            height: 100vh;
+            gap: 1rem;
+        }
+
+        #minhaDiv {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 200px;
+            height: 200px;
+            background-color: rgb(0, 119, 255);
+            color: aliceblue;
+            font-size: 30px;
+            font-family: Arial, sans-serif;
+        }
+    </style>
 </head>
 
 <body>
 
-    <button id="meuBotao">Clique-me</button>
+    <div id='minhaDiv'></div>
 
-    <p id="meuParagrafo">Texto inicial</p>
+    <button id='btn'>Click Aqui</button>
 
     <script>
-        
-        // Obtém uma referência ao botão e ao parágrafo usando IDs
-        const botao = document.getElementById('meuBotao');
-        const paragrafo = document.getElementById('meuParagrafo');
 
-        //  Adiciona um ouvinte de evento para o clique no botão 
-        botao.addEventListener('click', () => {
-        // Função de retorno de chamada que é acionada quando o botão é clicado
-        // Altera o texto do parágrafo para "Novo texto após o clique!"
-            paragrafo.textContent = 'Novo texto após o clique!';
+        const minhaDiv = document.getElementById('minhaDiv');
+
+        const btn = document.getElementById('btn');
+
+        btn.addEventListener('click', () => {
+
+            window.open('https://github.com/rochasantosdev', '_blank');
+
         });
+
 
     </script>
 

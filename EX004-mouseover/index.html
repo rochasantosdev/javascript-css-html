@@ -32,11 +32,16 @@
       font-family: Arial, sans-serif;
     }
     .novaClasse {
-      width: 50px;
-      height: 50px;
-      background-color: rgb(39, 255, 20);
+      width: 100px;
+      height: 100px;
+      background-color: #fffb14;
       border-radius: 3rem;
-      transform: rotate(-45deg);
+      font-size: 10px;
+      transition: 5s;
+    }
+
+    .novaClasse:hover {
+      transform: scale(1.1);
     }
   </style>
 </head>
@@ -51,6 +56,7 @@
 
     const minhaDiv = document.querySelector('.minhaDiv');
 
+
     minhaDiv.addEventListener('mouseover', () => {
 
       minhaDiv.style.backgroundColor = 'red';
@@ -60,11 +66,43 @@
     minhaDiv.addEventListener('mouseout', () => {
 
       /* minhaDiv.style.backgroundColor = 'blue'; */
-      /* window.location.href = 'https://github.com/rochasantosdev'; */
+
+
+      /*ALTERAR CLASSE DE UMA DIV COM JAVASCRIPT */
+
+
+      minhaDiv.classList.add('novaClasse'); 
+
+
+      /* MUDAR A COR DE UMA DIV COM JAVASCRIPT */
+
+
+      minhaDiv.style.backgroundColor = 'black';
+
+      
+
+      /* ADICONAR TEXTO EM UMA DIV COM JAVASCRIPT */
+
+
+      /* minhaDiv.textContent = 'Olá mundo!'; */
+
+      /* minhaDiv.innerHTML = 'Olá mundo!'; */
+
+
+
+
+
+      /* OUTROS COMANDOS COM JAVASCRIPT */
+      
+
+      /* window.location.href = 'https://github.com/rochasantosdev';*/
+
       /* alert("Olá mundo!"); */
+
       /* console.log("Olá mundo!"); */
-      /* minhaDiv.innerHTML = 'Olá mundo! */
-      /* minhaDiv.classList.add('novaClasse'); */
+
+      /* prompt("Digite algo:"); */
+
 
     });
 
