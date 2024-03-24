@@ -2,230 +2,247 @@
 <html lang="pt-br">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Transformação com Hover</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;0,9..40,900;1,9..40,300;1,9..40,400;1,9..40,500;1,9..40,600;1,9..40,700;1,9..40,800;1,9..40,900&family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transformação com Hover</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;0,9..40,900;1,9..40,300;1,9..40,400;1,9..40,500;1,9..40,600;1,9..40,700;1,9..40,800;1,9..40,900&family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'DM Sans', sans-serif;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'DM Sans', sans-serif;
+        }
 
-    body {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-      height: 100vh;
-      background-color: #13131F;
-      font-family: 'DM Sans', sans-serif;
-    }
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100vh;
+            background-color: #13131F;
+            font-family: 'DM Sans', sans-serif;
+        }
 
-    section {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      width: 100%;
-      height: 100vh;
-      padding: 3%;
-    }
+        section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            width: 100%;
+            height: 100vh;
+            padding: 3%;
+        }
 
-    #box {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      font-family: 'Poppins', sans-serif;
-      font-size: 22px;
-      font-weight: 500;
-      color: #fff;
-      width: 400px;
-      height: 250px;
-      border-radius: 1rem;
-      z-index: 1;
-      border-radius: 15px 15px 0 0;
-      border-bottom: 1px solid transparent;
-      border-image: linear-gradient(to right, #8be7ff, #2eb8f8, #004cd8);
-      border-image-slice: 1;
-      border-bottom-width: 3px;
-      border-bottom-style: solid;
-      overflow: hidden;
-      background-image: url('dailyweather.jpg');
-      background-size: cover;
-      gap: 1rem;
-      position: relative;
-    }
+        #box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            font-family: 'Poppins', sans-serif;
+            font-size: 22px;
+            font-weight: 500;
+            color: #fff;
+            width: 400px;
+            height: 250px;
+            border-radius: 1rem;
+            z-index: 1;
+            border-radius: 15px 15px 0 0;
+            border-bottom: 1px solid transparent;
+            border-image: linear-gradient(to right, #8be7ff, #2eb8f8, #004cd8);
+            border-image-slice: 1;
+            border-bottom-width: 3px;
+            border-bottom-style: solid;
+            overflow: hidden;
+            background-image: url('dailyweather.jpg');
+            background-size: cover;
+            gap: 1rem;
+            position: relative;
+        }
 
-    #box::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.5); /* Overlay escuro */
-      transition: opacity 0.5s ease; /* Transição de opacidade */
-    }
+        #box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            /* Overlay escuro */
+            transition: opacity 0.5s ease;
+            /* Transição de opacidade */
+        }
 
-    #box:hover::before {
-      opacity: 0; /* Torna o overlay transparente ao passar o mouse */
-    }
+        #box:hover::before {
+            opacity: 0;
+            /* Torna o overlay transparente ao passar o mouse */
+        }
 
-    #box1 {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 1rem;
-    }
+        #box1 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
 
-    #boxtext {
-      z-index: 1;
-    }
+        #boxtext {
+            z-index: 1;
+        }
 
-    .imagem {
-      z-index: 1;
-    }
+        .imagem {
+            z-index: 1;
+        }
 
-    #container {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      width: 500px;
-      height: 400px;
-      transition: all 0.7s;
-    }
+        #container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 500px;
+            height: 400px;
+            transition: all 0.7s;
+        }
 
-    #container:hover {
-      transform: scale(1.2);
-    }
+        #container:hover {
+            transform: scale(1.2);
+        }
 
-    #move {
-      display: flex;
-      align-items: center;
-      justify-content: space-around;
-      width: 400px;
-      height: 55px;
-      background-color: #212121;
-      top: -20%;
-      transition: 0.6s;
-      opacity: 0;
-      position: relative;
-      z-index: 0;
-      border-radius: 0 0 15px 15px;
-    }
+        #move {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            width: 400px;
+            height: 55px;
+            background-color: #212121;
+            top: -20%;
+            transition: 0.6s;
+            opacity: 0;
+            position: relative;
+            z-index: 0;
+            border-radius: 0 0 15px 15px;
+        }
 
-    #move h1 {
-      font-size: 12px;
-      color: aliceblue;
-      font-family: 'DM Sans', sans-serif;
-    }
+        #move h1 {
+            font-size: 12px;
+            color: aliceblue;
+            font-family: 'DM Sans', sans-serif;
+        }
 
-    #button {
-      padding: 2px 8px;
-      background-color: #212121;
-      color: #fff;
-      border-radius: 1rem;
-      border: 2px solid #24abfa;
-      cursor: pointer;
-      font-size: 11px;
-      font-weight: 500;
-    }
+        #button {
+            padding: 2px 8px;
+            background-color: #212121;
+            color: #fff;
+            border-radius: 1rem;
+            border: 2px solid #24abfa;
+            cursor: pointer;
+            font-size: 11px;
+            font-weight: 500;
+        }
 
-    #container #button {
-      transition: all 2s ease-in-out;
-    }
+        #container #button {
+            transition: all 2s ease-in-out;
+        }
 
-    #container:hover #button {
-      transform: scale(1.3);
-      background-color: #24abfa;
-    }
-
-  </style>
+        #container:hover #button {
+            transform: scale(1.3);
+            background-color: #24abfa;
+        }
+    </style>
 </head>
 
 <body>
 
-  <section>
-    <div id="container" onmouseover="removeImages()" onmouseout="adicionaImages()">
-      <div id="box" onmouseover="moveBox(), adicionaTexto()" onmouseout="resetBox(), removeText()">
+    <section>
+        <div id="container">
 
-        <div id="boxtext"><p>LANDING PAGE</p></div>
+            <div id="box">
 
-        <div id="box1">
+                <div id="boxtext">
+                    <p>LANDING PAGE</p>
+                </div>
 
-          <img class="imagem" src="imagem/html.svg" alt="html" width="35px" height="35px">
-          <img class="imagem" src="imagem/css.svg" alt="css" width="35px" height="35px">
-          <img class="imagem" src="imagem/javascript.svg" alt="javascript" width="35px" height="35px">
-          <img class="imagem" src="imagem/sass.svg" alt="sass" width="35px" height="35px">
+                <div id="box1">
 
+                    <img class="imagem" src="imagem/html.svg" alt="html" width="35px" height="35px">
+                    <img class="imagem" src="imagem/css.svg" alt="css" width="35px" height="35px">
+                    <img class="imagem" src="imagem/javascript.svg" alt="javascript" width="35px" height="35px">
+                    <img class="imagem" src="imagem/sass.svg" alt="sass" width="35px" height="35px">
+
+                </div>
+
+            </div>
+            <div id="move">
+                <h1>28 de Outubro de 2012</h1>
+
+                <a href="https://github.com/rochasantosdev">
+                    <button id="button">Ver Mais</button>
+                </a>
+
+            </div>
         </div>
 
-      </div>
-      <div id="move" onmouseover="keepMoveOpen()" onmouseout="resetBox()">
-        <h1>28 de Outubro de 2012</h1>
-        
-        <a href="https://github.com/rochasantosdev">
-          <button id="button">Ver Mais</button>
-        </a>
-        
-      </div>
-    </div>
-  </section>
+        </div>
+    </section>
 
 
-  <script>
+    <script>
 
-    function moveBox() {
-      const moveBox = document.querySelector('#move');
-      moveBox.style.top = "0px";
-      moveBox.style.opacity = "1";
-    }
 
-    function resetBox() {
-      const moveBox = document.querySelector('#move');
-      moveBox.style.top = "-20%";
-      moveBox.style.opacity = "0";
-    }
+        const meuElemento = document.getElementById('container');
 
-    function keepMoveOpen() {
-      const moveBox = document.querySelector('#move');
-      moveBox.style.top = "0px";
-      moveBox.style.opacity = "1";
-    }
+        const box = document.getElementById('box');
 
-    function adicionaTexto() {
-      document.getElementById("boxtext").textContent = "";
-    }
 
-    function removeText() {
-      document.getElementById("boxtext").textContent = "Daily Weather";
-    }
+        meuElemento.addEventListener('mouseover', function () {
+            const moveBox = document.querySelector('#move');
+            moveBox.style.top = "0px";
+            moveBox.style.opacity = "1";
 
-    function removeImages() {
-     const images = document.querySelectorAll('#box1 img');
-    images.forEach(image => {
-        image.style.opacity = '0';
-      });
-    }
+        });
 
-    function adicionaImages() {
-      const images = document.querySelectorAll('#box1 img');
-      images.forEach(image => {
-        image.style.opacity = '1';
-      });
-    }
 
-  </script>
+        meuElemento.addEventListener('mouseout', function () {
+
+            const moveBox = document.querySelector('#move');
+            moveBox.style.top = "-20%";
+            moveBox.style.opacity = "0";
+
+        });
+
+        box.addEventListener('mouseover', function () {
+
+            document.getElementById("boxtext").textContent = "";
+
+        });
+
+        box.addEventListener('mouseout', function () {
+
+            document.getElementById("boxtext").textContent = "Daily Weather";
+
+        });
+
+        meuElemento.addEventListener('mouseover', function () {
+
+            const images = document.querySelectorAll('#box1 img');
+            images.forEach(image => {
+                image.style.opacity = '0';
+            });
+
+        });
+
+        meuElemento.addEventListener('mouseout', function () {
+
+            const images = document.querySelectorAll('#box1 img');
+            images.forEach(image => {
+                image.style.opacity = '1';
+            });
+
+        });
+
+
+    </script>
 
 </body>
 
 </html>
-
-     
-
