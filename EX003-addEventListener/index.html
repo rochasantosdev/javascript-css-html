@@ -1,11 +1,10 @@
-<!--
 <!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Click</title>
+    <title>Scroll</title>
     <style>
         * {
             margin: 0;
@@ -16,209 +15,49 @@
         body {
             display: flex;
             align-items: center;
-            justify-content: center;
             flex-direction: column;
+            justify-content: center;
             width: 100%;
-            height: 100vh;
-            gap: 1rem;
+            height: 150vh;
+            background-color: darkgrey;
+            gap: 2rem;
         }
 
-        .outraDiv {
+        #div1 {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 200px;
-            height: 200px;
-            background-color: rgb(0, 119, 255);
-            color: aliceblue;
-            font-size: 30px;
-            font-family: Arial, sans-serif;
-        }
-
-        .outraClasse {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 400px;
-            height: 400px;
-            background-color: red;
-            font-size: 50px;
-            font-family: monospace;
-        }
-    </style>
-</head>
-
-<body>
-    <div id='minhaDiv' class="outraDiv"></div>
-    <button onclick="alterarClasse()">Clique Aqui</button>
-
-
-    <script>
-
-        function alterarClasse() {
-            var div = document.getElementById('minhaDiv');
-            div.classList.toggle('outraClasse');
-            minhaDiv.textContent = 'Olá mundo!';
-        }
-
-    </script>
-
-</body>
-
-</html>
-
-
-
-<!DOCTYPE html>
-<html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Click</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            width: 100%;
-            height: 100vh;
-            gap: 1rem;
-        }
-
-        .outraDiv {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 200px;
-            height: 200px;
-            background-color: rgb(0, 119, 255);
-            color: aliceblue;
-            font-size: 30px;
-            font-family: Arial, sans-serif;
-        }
-
-        .outraClasse {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 400px;
-            height: 400px;
-            color: #ffffff;
-            background-color: crimson;
-            font-size: 50px;
-            font-family: monospace;
-            border-radius: 3rem;
+            width: 100px;
+            height: 100px;
+            background-color: blueviolet;
+            margin-bottom: 20rem;
         }
     </style>
 </head>
 
 <body>
 
-    <div id='minhaDiv' class="outraDiv"></div>
-
-    <button id='btn'>Click Aqui</button>
+    <div id="div1"></div>
 
     <script>
 
-        const minhaDiv = document.getElementById('minhaDiv');
+        const div1 = document.getElementById('div1');
 
-        const btn = document.getElementById('btn');
+        window.addEventListener('scroll', function () {
 
-        const outraDiv = document.querySelector('.outraClasse');
+            const scrollTop = window.scrollY;
 
-        btn.addEventListener('click', () => {
-
-            minhaDiv.textContent = 'Olá mundo!';
-            minhaDiv.classList.toggle('outraClasse');
-
-        });
-    </script>
-</body>
-
-</html>
-
--->
-
-
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Click</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            width: 100%;
-            height: 100vh;
-            gap: 1rem;
-        }
-
-        .outraDiv {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 200px;
-            height: 200px;
-            background-color: rgb(0, 119, 255);
-            color: aliceblue;
-            font-size: 30px;
-            font-family: Arial, sans-serif;
-        }
-
-        .outraClasse {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 400px;
-            height: 400px;
-            color: #ffffff;
-            background-color: crimson;
-            font-size: 50px;
-            font-family: monospace;
-            border-radius: 3rem;
-        }
-    </style>
-</head>
-<body>
-    <div id='minhaDiv' class="outraDiv"></div>
-    <button id='btn'>Click Aqui</button>
-
-    <script>
-        const minhaDiv = document.getElementById('minhaDiv');
-        
-        const btn = document.getElementById('btn');
-
-        btn.addEventListener('click', () => {
-           
-            const isOutraClasse = minhaDiv.classList.contains('outraClasse');
-
-           
-            if (isOutraClasse) {
-                minhaDiv.classList.remove('outraClasse');
-                minhaDiv.textContent = '';
+            if (scrollTop >= 100) {
+                div1.textContent = 'Olá mundo!';
             } else {
-                minhaDiv.classList.add('outraClasse');
-                minhaDiv.textContent = 'Olá mundo!';
+                document.getElementById("div1").textContent = "";
             }
         });
+
     </script>
 </body>
+
+</html>
+
+
 </html>
