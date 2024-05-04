@@ -1,52 +1,152 @@
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Exemplo com addEventListener()</title>
+  <title>Criando Elemento com Click</title>
   <style>
-    *{
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-    body{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        height: 100vh;
-    }
-    .minhaDiv {
-      width: 200px;
-      height: 200px;
-      background-color: blue;
+
+    body {
       display: flex;
       align-items: center;
       justify-content: center;
-      color: aliceblue;
-      font-size: 15px;
+      flex-direction: column;
+      width: 100%;
+      height: 100vh;
+    }
+
+    .minhaDiv {
+      width: 100%;
+      height: 500px;
+      background-color: darkgrey;
     }
   </style>
 </head>
+
 <body>
 
-    <!-- Div que terá o texto exibido -->
-    <div class="minhaDiv" onmouseover="exibirTexto()" onmouseout="esconderTexto()">
-      <span id="textoSpan" style="display: none;">Texto ao passar o mouse!</span>
-    </div>
+  <div class="minhaDiv"></div>
+
+  <button class="btn">Click Aqui</button>
+
+  <script>
+
+    const minhaDiv = document.querySelector(".minhaDiv")
+
+    const btn = document.querySelector(".btn")
+
+
+    btn.addEventListener("click", function () {
+      // Criando a nova div
+      const novaDiv = document.createElement("div");
+      novaDiv.textContent = "Nova Div Adicionada";
+      novaDiv.style.backgroundColor = "red";
+      novaDiv.style.width = "80px";
+      novaDiv.style.height = "50px";
   
-    <!-- Script contendo código JavaScript -->
-    <script>
-      function exibirTexto() {
-        // Mostra o texto quando o mouse passa sobre a div
-        document.getElementById('textoSpan').style.display = 'inline';
+
+      // Adicionando a nova div dentro da minhaDiv
+      minhaDiv.appendChild(novaDiv);
+    });
+
+
+
+  </script>
+</body>
+
+</html>
+
+-->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Criando e Removendo Elementos</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      width: 100%;
+      height: 100vh;
+    }
+
+    .minhaDiv {
+      width: 100%;
+      height: 500px;
+      background-color: darkgrey;
+      display: flex;
+      flex-wrap: wrap; /* Para as novas divs irem para uma nova linha */
+    }
+
+    .novaDiv {
+      margin: 10px; /* Margem de 10 pixels entre as novas divs */
+      background-color: red;
+      width: 80px;
+      height: 50px;
+    }
+
+    .btn {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="minhaDiv"></div>
+
+  <button class="btn-adicionar">Adicionar Div</button>
+  <button class="btn-remover">Remover Div</button>
+
+  <script>
+
+    const minhaDiv = document.querySelector(".minhaDiv");
+    const btnAdicionar = document.querySelector(".btn-adicionar");
+    const btnRemover = document.querySelector(".btn-remover");
+    let contadorDivs = 0;
+
+    btnAdicionar.addEventListener("click", function () {
+      if (contadorDivs < 10) {
+        const novaDiv = document.createElement("div");
+        novaDiv.textContent = "Nova Div Adicionada";
+        novaDiv.classList.add("novaDiv");
+        minhaDiv.appendChild(novaDiv);
+        contadorDivs++;
+      } else {
+        alert("Limite total de divs alcançado!");
       }
-  
-      function esconderTexto() {
-        // Esconde o texto quando o mouse sai da div
-        document.getElementById('textoSpan').style.display = 'none';
+    });
+
+    btnRemover.addEventListener("click", function () {
+      if (contadorDivs > 0) {
+        const divs = minhaDiv.querySelectorAll(".novaDiv");
+        const ultimaDiv = divs[divs.length - 1];
+        ultimaDiv.remove();
+        contadorDivs--;
+      } else {
+        alert("Não há mais divs para remover!");
       }
-    </script>
-  </body>
-  </html>
+    });
+
+  </script>
+</body>
+
+</html>
+
