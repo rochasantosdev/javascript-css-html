@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;0,9..40,900;1,9..40,300;1,9..40,400;1,9..40,500;1,9..40,600;1,9..40,700;1,9..40,800;1,9..40,900&family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+@import "../node_modules/bootstrap/scss/bootstrap";
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    height: 100vh;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #13131F;
+    gap: 20px;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 360px;
+    height: 660px;
+    gap: 20px;
+}
+
+
+.img-port {
+    width: 360px;
+    height: 660px;
+    background-image: url('img/site.png');
+    background-size: cover;
+    background-position: 100% 0;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 5s;
+}
+
+.img-port:hover {
+    background-position: 100% 100%;
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #2eb8f8;
+    color: azure;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    font-family: 'DM Sans', sans-serif;
+    border: 5px solid #ffffff;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 3s;
+    text-decoration: none;
+}
+
+.btn:hover {
+   transform: scale(1.1);
+}
+
+.bi-arrow-right-circle {
+    margin-left: 10px;
+    font-size: 20px;
+}
