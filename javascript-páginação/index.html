@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paginação com Categorias</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+        margin: 0;
+        padding: 0;
+    }
+
+    #categories {
+        margin-top: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .category {
+        width: 200px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        padding: 20px;
+        margin: 10px;
+        text-align: center;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .category:hover {
+        transform: translateY(-5px);
+    }
+
+    .category img {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 10px;
+    }
+
+    #pagination {
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .page-link {
+        display: inline-block;
+        padding: 8px 12px;
+        margin: 5px;
+        background-color: #007bff;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 4px;
+        transition: background-color 0.3s ease-in-out;
+    }
+
+    .page-link:hover {
+        background-color: #0056b3;
+    }
+</style>
+</head>
+<body>
+
+<div id="categories">
+    <div class="category" data-category="1">
+        <img src="img/banana.png" alt="Categoria 1">
+        <h3>BANANA</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </div>
+    <div class="category" data-category="2">
+        <img src="img/corola.png" alt="Categoria 2">
+        <h3>COROLA</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </div>
+    <div class="category" data-category="3">
+        <img src="img/goiaba.png" alt="Categoria 3">
+        <h3>GOIABA</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </div>
+    <div class="category" data-category="4">
+        <img src="img/gol.png" alt="Categoria 4">
+        <h3>GOL</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </div>
+    <div class="category" data-category="5">
+        <img src="img/manga.png" alt="Categoria 5">
+        <h3>MANGA</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </div>
+    <div class="category" data-category="6">
+        <img src="img/onix.png" alt="Categoria 6">
+        <h3>ONIX</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </div>
+    <div class="category" data-category="7">
+        <img src="img/melancia.png" alt="Categoria 7">
+        <h3>Melancia</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </div>
+    <div class="category" data-category="8">
+        <img src="img/voyage.png" alt="Categoria 8">
+        <h3>Voyage</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </div>
+
+</div>
+
+<div id="pagination">
+    <!-- Pagination links will be generated dynamically here -->
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const categories = document.querySelectorAll('.category');
+        const paginationContainer = document.getElementById('pagination');
+        const itemsPerPage = 4; // Número de divs por página
+
+        let currentPage = 1;
+
+        function displayCategories(page) {
+            const startIndex = (page - 1) * itemsPerPage;
+            const endIndex = startIndex + itemsPerPage;
+
+            categories.forEach((category, index) => {
+                if (index >= startIndex && index < endIndex) {
+                    category.style.display = 'block';
+                } else {
+                    category.style.display = 'none';
+                }
+            });
+        }
+
+        function setupPagination() {
+            const pageCount = Math.ceil(categories.length / itemsPerPage);
+
+            for (let i = 1; i <= pageCount; i++) {
+                const pageLink = document.createElement('a');
+                pageLink.href = '#';
+                pageLink.classList.add('page-link');
+                pageLink.textContent = i;
+
+                pageLink.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    currentPage = i;
+                    displayCategories(currentPage);
+
+                    // Remove active class from all links
+                    document.querySelectorAll('.page-link').forEach(link => {
+                        link.classList.remove('active');
+                    });
+
+                    // Add active class to the clicked link
+                    this.classList.add('active');
+                });
+
+                paginationContainer.appendChild(pageLink);
+            }
+
+            // Set the first page as active initially
+            document.querySelector('.page-link').classList.add('active');
+        }
+
+        displayCategories(currentPage);
+        setupPagination();
+    });
+</script>
+
+</body>
+</html>

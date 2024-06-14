@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filtros</title>
+</head>
+
+<body>
+
+    <div class="item" data-category="frutas">
+        <img src="img/manga.png">
+        <h1>Manga</h1>
+    </div>
+
+<script>
+    const div = document.querySelector('.item');
+    const categoria = div.getAttribute('data-category');
+
+    if (categoria === 'frutas') {
+    console.log('Este elemento é da categoria frutas.');
+    } else {
+    console.log('Este elemento não é da categoria frutas.');
+    }
+
+</script>
+
+
+</body>
+
+</html>
